@@ -2,6 +2,10 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
+## Environment variables
+
+Copy `.env.example` to `.env` and replace the placeholders with your Supabase project URL and anon key. Keep `.env` local; it is ignored by Git. In Vite, variables prefixed with `VITE_` are exposed to client-side code, so never put a Supabase service-role key or other secret in them.
+
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
