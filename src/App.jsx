@@ -1,12 +1,15 @@
-import { useEffect, useState } from 'react'
-import { supabase } from './utils/supabase'
+import Dashboard from './pages/dashboard'
+import Login from './pages/login'
 import './App.css'
 
 function App() {
+  if (window.location.pathname === '/dashboard') {
+    return <Dashboard />
+  }
 
   return (
     <div className="App">
-      <h1>Welcome to Dinkbase</h1>
+      <Login />
     </div>
   )
 }
