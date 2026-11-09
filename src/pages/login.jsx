@@ -36,7 +36,7 @@ function Field({
 
 
 
-const initialFormState = { error: '', success: false }
+const initialFormState = { error: '', success: false, username: '' }
 
 const Login = () => {
   const [mode, setMode] = useState('login')
@@ -82,7 +82,7 @@ const Login = () => {
           }
         }
 
-        return { error: '', success: true }
+        return { error: '', success: true, username }
       } catch (error) {
         console.error(`Unexpected error during ${mode}:`, error)
         return { ...initialFormState, error: 'Something went wrong. Please try again.' }
@@ -93,9 +93,10 @@ const Login = () => {
 
   useEffect(() => {
     if (formState.success) {
+      localStorage.setItem('dinkbase.username', formState.username)
       window.location.assign('/dashboard')
     }
-  }, [formState.success])
+  }, [formState.success, formState.username])
 
   return (
     <main className="login-page">
